@@ -1,6 +1,8 @@
-import { MongoClient, Db, Collection } from 'mongodb';
+import { MongoClient, Collection } from 'mongodb';
 
-// environment variables
+import loadEnv from '../utils/loadEnv';
+
+loadEnv('../../.env'); // load environment variables
 const CLIENT = process.env.DATABASE_CLIENT;
 const USERNAME = process.env.DATABASE_USERNAME;
 const PASSWORD = process.env.DATABASE_PASSWORD;
