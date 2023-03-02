@@ -29,7 +29,7 @@ export async function connectToDatabase() {
     });
 };
 
-export async function disconnectToDatabase() {
+export async function disconnectFromDatabase() {
     if (!database) {
         console.log("Not connected to a database");
         return;
