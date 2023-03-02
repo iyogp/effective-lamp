@@ -25,7 +25,7 @@ export async function connectToDatabase() {
         console.log(`Connected to database: ${database.name}`);
     });
     database.on("error", () => {
-        console.log("Error connecting to database");
+        console.log(`Error connecting to database: ${database.name}`);
     });
 };
 
@@ -34,6 +34,11 @@ export async function disconnectFromDatabase() {
         console.log("Not connected to a database");
         return;
     };
-    disconnect();
-    console.log("Disconnected from database");
+    disconnect()
+        .then(() => {
+            console.log(`Disconnected from database: ${database.name}`);
+        })
+        .catch(() => {
+            console.log(`Unable to disconnect from database: ${database.name}`);
+        });
 };
