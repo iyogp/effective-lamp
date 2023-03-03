@@ -2,7 +2,7 @@ import { connect, disconnect } from 'mongoose';
 
 import loadEnv from '../utils/loadEnv';
 
-loadEnv('../../.env'); // load environment variables
+loadEnv('../../.env');
 const env = process.env;
 const URI = `${env.DB_CLIENT}://${env.DB_USERNAME}:${env.DB_PASSWORD}@${env.DB_HOST}/${env.DB_NAME}?retryWrites=true&w=majority`;
 
@@ -17,6 +17,7 @@ export async function connectToDatabase() {
         });
 };
 
+/** Disconnect from MongoDB database */
 export async function disconnectFromDatabase() {
     disconnect()
         .then(() => {

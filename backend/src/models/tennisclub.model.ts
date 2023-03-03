@@ -1,8 +1,12 @@
 import { Schema, model } from "mongoose";
 
+import loadEnv from "../utils/loadEnv";
+
 import Address from "./address.model";
 import Court from "./court.model";
 import Contact from "./contact.model";
+
+loadEnv('../../.env');
 
 export interface ITennisClub {
     club: string;
@@ -42,4 +46,4 @@ var tennisClubSchema = new Schema(
     { collection: '_tennisclubs' }
 );
 
-export const TennisClubs = model('TennisClub', tennisClubSchema);
+export const TennisClubs = model(process.env.DB_COLLECTION!, tennisClubSchema);
