@@ -1,44 +1,28 @@
-import { Connection, connect, connection, disconnect } from 'mongoose';
+import { connect, disconnect } from 'mongoose';
 
 import loadEnv from '../utils/loadEnv';
 
-let database: Connection;
-
 loadEnv('../../.env'); // load environment variables
-const CLIENT = process.env.DATABASE_CLIENT;
-const USERNAME = process.env.DATABASE_USERNAME;
-const PASSWORD = process.env.DATABASE_PASSWORD;
-const HOST = process.env.DATABASE_HOST;
-const DB_NAME = process.env.DATABASE_NAME;
-// const TENNIS_CLUBS_COLLECTION_NAME = process.env.TENNIS_CLUBS_COLLECTION_NAME;
-const URI = `${CLIENT}://${USERNAME}:${PASSWORD}@${HOST}/?retryWrites=true&w=majority`;
+const env = process.env;
+const URI = `${env.DB_CLIENT}://${env.DB_USERNAME}:${env.DB_PASSWORD}@${env.DB_HOST}/${env.DB_NAME}?retryWrites=true&w=majority`;
 
 /** Connect to MongoDB database */
 export async function connectToDatabase() {
-    if (database) {
-        console.log("Already connnected to database")
-        return;
-    };
-    connect(URI, { dbName: DB_NAME });
-    database = connection;
-    database.once("open", async () => {
-        console.log(`Connected to database: ${database.name}`);
-    });
-    database.on("error", () => {
-        console.log(`Error connecting to database: ${database.name}`);
-    });
+    connect(URI)
+        .then(() => {
+            console.log(`Connected to database`);
+        })
+        .catch(() => {
+            console.log(`Error connecting to database`);
+        });
 };
 
 export async function disconnectFromDatabase() {
-    if (!database) {
-        console.log("Not connected to a database");
-        return;
-    };
     disconnect()
         .then(() => {
-            console.log(`Disconnected from database: ${database.name}`);
+            console.log(`Disconnected from database`);
         })
         .catch(() => {
-            console.log(`Unable to disconnect from database: ${database.name}`);
+            console.log(`Unable to disconnect from database`);
         });
 };
