@@ -1,19 +1,15 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 
-import { TennisClubs } from '../models/tennisclub.model';
+import TennisClubController from '../controller/tennisclub.controller';
 
 const router = express.Router();
 
-/** GET: Fetch all tennis club documents from mongodb database. */
-router.get('/api/tennisclubs', [], async (req: Request, res: Response) => {
-    const tennisClubs = await TennisClubs.find({}).exec();
-    return res.status(200).send(tennisClubs);
-});
+const tennisClubController = new TennisClubController();
 
-/** GET: Fetch a tennis club document from mongodb database by id */
-router.get('/api/tennisclubs/:id', [], async (req: Request, res: Response) => {
-    const tennisClub = await TennisClubs.find({ _id: req.params.id }).exec();
-    return res.status(200).send(tennisClub);
-});
+// retrieve all tennis clubs
+router.get('/api/tennisclubs', tennisClubController.findAll);
+
+// retrieve a specific tennis club
+router.get('/api/tennisclub/:id', tennisClubController.findOne);
 
 export { router as tennisClubRouter };
