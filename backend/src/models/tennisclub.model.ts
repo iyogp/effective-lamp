@@ -40,8 +40,8 @@ var tennisClubSchema = new Schema(
         club: { type: String, required: true },
         type: { type: String, required: true },
         address: { type: Object, required: true },
-        courts: { type: Array, required: true },
-        contacts: { type: Array, required: true }
+        courts: { type: Array<Court>, required: true },
+        contacts: { type: Array<Contact>, required: true }
     },
     { collection: '_tennisclubs' }
 );
