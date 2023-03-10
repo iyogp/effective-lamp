@@ -1,10 +1,8 @@
 import { Schema, model } from "mongoose";
-
-import loadEnv from "../utils/loadEnv";
-
 import Address from "./address.model";
 import Court from "./court.model";
 import Contact from "./contact.model";
+import loadEnv from "../utils/loadEnv.util";
 
 loadEnv('../../.env');
 
