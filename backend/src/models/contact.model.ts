@@ -3,4 +3,4 @@ export default interface Contact {
     last_name: string;
     mobile: string;
     role: string;
-};
+}

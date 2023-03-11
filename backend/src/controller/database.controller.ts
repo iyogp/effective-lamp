@@ -12,11 +12,17 @@ export default class Database {
         this.connection = null;
     }
 
+    /**
+     * Creates a uri connection string for database
+     * @param dbConfig configuration items for database
+     * @returns uri connection string
+     */
     private createUri = (dbConfig: IDbConfig) => {
         const { client, username, password, host, name, query } = dbConfig;
         return `${client}://${username}:${password}@${host}/${name}?${query}`;
     }
 
+    /** Connects to database */
     public connectToDatabase = async () => {
         try {
             if (this.connection !== null) {
@@ -32,6 +38,7 @@ export default class Database {
         }
     }
 
+    /** Disconnects from datbase */
     public disconnectFromDatabase = async () => {
         try {
             if (this.connection === null) {

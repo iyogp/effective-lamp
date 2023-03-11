@@ -12,7 +12,7 @@ export interface ITennisClub {
     address: Address;
     courts: Array<Court>;
     contacts: Array<Contact>;
-};
+}
 
 export class TennisClub {
 
@@ -29,9 +29,9 @@ export class TennisClub {
         this.address = address;
         this.courts = courts;
         this.contacts = contacts;
-    };
+    }
 
-};
+}
 
 var tennisClubSchema = new Schema(
     {
@@ -42,6 +42,6 @@ var tennisClubSchema = new Schema(
         contacts: { type: Array<Contact>, required: true }
     },
     { collection: '_tennisclubs' }
-);
+)
 
 export const TennisClubs = model(process.env.DB_COLLECTION!, tennisClubSchema);

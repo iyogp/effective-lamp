@@ -1,9 +1,8 @@
 import express from 'express';
-import { json } from 'body-parser';
 import Database from './controller/database.controller';
-import { tennisClubRouter } from './routes/tennisclubs.router';
+import tennisClubRouter from './routes/tennisclubs.router';
 import loadEnv from './utils/loadEnv.util';
-import { getDbConfig } from './utils/getdbconfig.util';
+import getDbConfig from './utils/getDbConfig.util';
 
 loadEnv('../.env');
 
@@ -13,7 +12,7 @@ const db = new Database(getDbConfig());
 db.connectToDatabase();
 
 const app = express();
-app.use(json());
+app.use(express.json());
 app.use(tennisClubRouter);
 
 app.listen(PORT, () => { console.log(`Server is listening on port ${PORT}`) });

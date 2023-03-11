@@ -3,4 +3,4 @@ export default interface Court {
     surface: string;
     rate: number;
     booked: boolean;
-};
+}
