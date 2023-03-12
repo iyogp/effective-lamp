@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { TennisClubs } from "../models/tennisclub.model";
+import TennisClubs from "../models/tennisclub";
 
 export default class TennisClubController {
 

@@ -1,4 +1,4 @@
-import IDbConfig from "../models/dbconfig.model";
+import IDbConfig from "../interfaces/dbconfig"
 
 /**
  * Create database configuration object from loading environment variables

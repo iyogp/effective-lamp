@@ -1,5 +1,5 @@
 import express from 'express';
-import Database from './controller/database.controller';
+import Database from './controller/database';
 import tennisClubRouter from './routes/tennisclubs.router';
 import loadEnv from './utils/loadEnv.util';
 import getDbConfig from './utils/getDbConfig.util';

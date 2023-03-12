@@ -1,6 +1,6 @@
 import express from 'express';
 
-import TennisClubController from '../controller/tennisclub.controller';
+import TennisClubController from '../controller/tennisclubcontroller';
 
 const tennisClubRouter = express.Router();
 

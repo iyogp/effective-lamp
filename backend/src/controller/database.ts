@@ -1,6 +1,6 @@
 import { connect, disconnect, Mongoose } from 'mongoose';
 
-import IDbConfig from '../models/dbconfig.model';
+import IDbConfig from '../interfaces/dbconfig';
 
 export default class Database {
 
