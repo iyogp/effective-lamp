@@ -17,19 +17,19 @@ export default class TennisClubController {
                 return res.status(404).send({
                     success: false,
                     message: 'Tennis clubs not found',
-                    data: null
+                    tennisClubs: null
                 });
             }
             return res.status(200).send({
                 success: true,
-                data: tennisClubs
+                tennisClubs: tennisClubs
             });
         } catch (error) {
             if (error instanceof Error) {
                 return res.status(500).send({
                     success: false,
                     message: error.toString(),
-                    data: null
+                    tennisClubs: null
                 });
             }
         }
@@ -48,19 +48,19 @@ export default class TennisClubController {
                 return res.status(404).send({
                     success: false,
                     message: 'Tennis club not found',
-                    data: null
+                    tennisClub: null
                 });
             }
             return res.status(200).send({
                 success: true,
-                data: tennisClub
+                tennisClub: tennisClub
             });
         } catch (error) {
             if (error instanceof Error) {
                 return res.status(500).send({
                     success: false,
                     message: error.toString(),
-                    data: null
+                    tennisClub: null
                 });
             }
         }
@@ -92,19 +92,19 @@ export default class TennisClubController {
                 return res.status(404).send({
                     success: false,
                     message: 'Tennis club not found',
-                    data: null
+                    tennisClubUpdated: null
                 });
             }
             return res.status(200).send({
                 success: true,
-                data: tennisClubUpdated
+                tennisClubUpdated: tennisClubUpdated
             });
         } catch (error) {
             if (error instanceof Error) {
                 return res.status(500).send({
                     success: false,
                     message: error.toString(),
-                    data: null
+                    tennisClubUpdated: null
                 });
             }
         }
@@ -123,7 +123,6 @@ export default class TennisClubController {
                 return res.status(404).send({
                     success: false,
                     message: 'Tennis club not found',
-                    data: null
                 });
             }
             return res.status(204).send();
@@ -132,7 +131,6 @@ export default class TennisClubController {
                 return res.status(500).send({
                     success: false,
                     message: error.toString(),
-                    data: null
                 });
             }
         }
